@@ -1,38 +1,186 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    background: url('./img/bg.png') no-repeat center top/cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#root {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .App {
-  text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #333;
+    font-family: 'Poppins', sans-serif;
+    width: 90%;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.App h2 {
+    font-size: 300%;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.Search {
+    width: 400px;
+    height: 30px;
+    margin: 1rem;
+    padding: 10px 20px;
+    background: #fff;
+    border: none;
+    border-radius: 40px;
+    box-shadow: 2px 2px 4px #333;
+    font-size: 125%;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.App input:focus {
+    outline: none;
 }
 
-.App-link {
-  color: #61dafb;
+.Header {
+    text-align: center;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.Days {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    overflow-x: scroll;
+}
+
+.Day {
+    color: #000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(220,220,220,0.35);
+    border-radius: 15px;
+    padding: 15px;
+    margin: 2px;
+}
+
+.Today {
+    width: 100%;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.Today .left {
+    width: 40%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 300%;
+    height: 80%;
+}
+
+.Today .left i {
+    font-size: 360%;
+    margin-right: 1rem;
+}
+
+.Today .right {
+    width: 60%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    background: rgba(238,238,238,0.35);
+    border-radius: 1rem;
+    height: 80%;
+    font-size: 210%;
+}
+
+.Today .right h4 {
+    text-align: center;
+}
+
+.Today .right h4 p {
+    font-size: 85%;
+}
+
+@media(max-width: 1300px) {
+    .App {
+        font-size: 14px;
+    }
+}
+
+@media(max-width: 1200px) {
+    .Today {
+        height: 250px;
+    }
+    .Today .left {
+        font-size: 250%;
+    }
+}
+
+@media(max-width: 1100px) {
+    .Today .right {
+        width: 55%;
+    }
+    .Today .right {
+        font-size: 170%;
+    }
+}
+
+@media(max-width: 800px) {
+    /*.Today .right {
+        display: none;
+    }*/
+    .Today {
+        flex-direction: column;
+        justify-content: space-evenly;
+    }
+    .Today .left {
+        width: 100%;
+        font-size: 180%;
+        height: 40%;
+    }
+    .Today .right {
+        width: 100%;
+        height: 40%;
+        font-size: 140%;
+    }
+}
+
+@media(max-width: 600px) {
+    .Search {
+        width: 80%;
+    }
+}
+
+@media(max-width: 400px) {
+    .Today .right {
+        display: none;
+    }
+    .Today .left {
+        height: 100%;
+    }
+}
+
+@media(max-height: 700px) {
+    .Today {
+        height: 180px;
+    }
+    .Day img {
+        max-height: 80px;
+        width: auto;
+    }
 }
