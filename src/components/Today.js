@@ -1,29 +1,34 @@
 import React from 'react';
 
-const Today = ({ data }) => {
-    let iconName;
-    const weather = data.weather[0].main;
-    if (weather === 'Thunderstorm') {
-        iconName = 'fas fa-thunderstorm';
-    } else if (weather === 'Drizzle') {
-        iconName = 'fas fa-cloud-drizzle';
-    } else if (weather === 'Rain') {
-        iconName = 'fas fa-cloud-rain';
-    } else if (weather === 'Snow') {
-        iconName = 'fas fa-snowflake';
-    } else if (weather === 'Clear') {
-        iconName = 'fas fa-sun';
-    } else if (weather === 'Clouds') {
-        iconName = 'fas fa-cloud';
-    } else {
-        iconName = 'fas fa-smog';
+const decideOnIconName = (weather) => {
+    switch (weather) {
+        case 'Thunderstorm':
+            return 'fas fa-thunderstorm';
+        case 'Drizzle':
+            return 'fas fa-cloud-drizzle';
+        case 'Rain':
+            return 'fas fa-cloud-rain';
+        case 'Snow':
+            return 'fas fa-snowflake';
+        case 'Clear':
+            return 'fas fa-sun';
+        case 'Clouds':
+            return 'fas fa-cloud';
+        default:
+            return 'fas fa-smog';
     }
+}
+
+const Today = ({ data }) => {
+    const weather = data.weather[0].main;
+    const iconClassName = decideOnIconName(weather);
 
     return (
         <div className='Today'>
             <div className="left">
-                <i className={iconName}></i>
+                <i className={iconClassName}></i>
                 <div>
+                    <h3 style={{fontSize: '1rem'}}>{data.dt_txt}</h3>
                     <h3>{data.main.temp}°C</h3>
                     <h3>{weather}</h3>
                 </div>
